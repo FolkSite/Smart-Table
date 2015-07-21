@@ -15,8 +15,8 @@ ng.module('smart-table')
         return stConfig.pagination.template;
       },
       link: function (scope, element, attrs, ctrl) {
-
-        scope.stItemsByPage = scope.stItemsByPage ? +(scope.stItemsByPage) : stConfig.pagination.itemsByPage;
+        var defaultItemsByPage = ctrl.tableState().pagination.number ? +(ctrl.tableState().pagination.number) : stConfig.pagination.itemsByPage;
+        scope.stItemsByPage = scope.stItemsByPage ? +(scope.stItemsByPage) : defaultItemsByPage;
         scope.stDisplayedPages = scope.stDisplayedPages ? +(scope.stDisplayedPages) : stConfig.pagination.displayedPages;
 
         scope.currentPage = 1;
